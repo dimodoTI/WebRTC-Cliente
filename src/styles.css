@@ -1,29 +1,52 @@
-@media all and (max-width: 500px) {
-  html {
-    font-size: 4vmin;
-  }
+@font-face {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Nunito-Regular.ttf') format('ttf');
 }
 
-@media all and (max-width: 800px) and (min-width: 601px) {
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2vmin;
+
+}
+
+
+@media all and (max-width: 800px) {
   html {
     font-size: 1.5vmin;
   }
 }
 
-@media all and (min-width: 801px) {
+@media all and (max-width: 600px) {
   html {
-    font-size: 2vmin;
+    font-size: 4vmin;
+  }
+
+  #btnPantalla {
+    display: none
   }
 }
 
+
+
+
+
+
 html,
 body {
+
   display: grid;
   height: 100vh;
   width: 100vw;
   margin: 0;
   overflow-y: auto;
+  --shadow-elevation-4-box: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-elevation-4-z: 400;
 }
+
+
+
 
 video {
   height: 100%;
@@ -58,19 +81,28 @@ video {
   border: 1px solid black;
 }
 
-button {
+#btnPantalla {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  top: 1rem;
+  left: 1rem;
   background-color: coral;
   color: white;
-  padding: 1rem;
+  padding: .5rem;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  box-shadow: var(--shadow-elevation-4-box);
+
 }
 
-button:hover {
+#btnPantalla .contenido {
+  display: grid;
+  grid-gap: .5rem;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+#btnPantalla:hover {
   background-color: darksalmon;
 }
 
@@ -84,4 +116,21 @@ button:hover {
   padding: 0 1rem 0.3rem 1rem;
   border-radius: 0 0 20px 20px;
   font-weight: bold;
+}
+
+#btnCerrar {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: red;
+  border-radius: 50%;
+  padding: 1rem;
+  color: white;
+  stroke: white;
+  fill: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-elevation-4-box);
+
 }

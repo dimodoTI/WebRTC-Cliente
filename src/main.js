@@ -16,6 +16,11 @@ document.getElementById("btnPantalla").onclick = e => {
     screen: true
   });
 };
+document.getElementById("btnCerrar").onclick = e => {
+  if (confirm("¿ Desea terminar la videollamada ?")) {
+    connection.close()
+  }
+};
 
 
 let connection = null;
