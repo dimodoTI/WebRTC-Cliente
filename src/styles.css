@@ -124,6 +124,20 @@ video {
   font-weight: bold;
 }
 
+#anfitrion {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1rem 1rem 1rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;  
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  font-size: 2.5vw;
+  align-items: center;
+  text-align: center;
+}
+
 #btnCerrar {
   position: absolute;
   bottom: 1rem;
@@ -151,4 +165,14 @@ video {
 
 #btnCerrar:not([hablando]) #colgar {
   display: none;
+}
+
+.blink {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }

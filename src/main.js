@@ -20,6 +20,9 @@ document.getElementById("btnPantalla").onclick = e => {
 document.getElementById("btnCerrar").onclick = e => {
   if (e.currentTarget.hasAttribute("hablando")) {
     if (confirm("¿ Desea terminar la videollamada ?")) {
+      
+      let divAnfitrion = document.getElementById("anfitrion");
+      divAnfitrion.hidden = true ;
 
       let mediaElement1 = document.getElementById("video-local");
       if (mediaElement1) {
@@ -34,6 +37,8 @@ document.getElementById("btnCerrar").onclick = e => {
     }
   } else {
     conectar()
+    let divAnfitrion = document.getElementById("anfitrion");
+    divAnfitrion.hidden = false ;                                                                                                                                                                                                                                                                                                                            
     e.currentTarget.setAttribute("hablando", "")
   }
 };
@@ -72,6 +77,7 @@ const conectar = conPantalla => {
       if (elm.__userId == event.userid) elm.parentNode.removeChild(elm);
     })
   };
+
   connection.onstreamended = function (event) {
     let mediaElement = document.getElementById(event.streamid);
     if (mediaElement) {
@@ -91,6 +97,8 @@ const conectar = conPantalla => {
         document.querySelector("#video-local").appendChild(event.mediaElement);
       }
       if (event.type == "remote") {
+        let divAnfitrion = document.getElementById("anfitrion");
+        divAnfitrion.hidden = true ;
         event.mediaElement.muted = false
         var mediaElement = document.getElementById(event.streamid);
         if (!mediaElement) {
