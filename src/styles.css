@@ -29,13 +29,17 @@ html {
 }
 
 
-
-
-
+:root {
+  --fondo: url(../assets/image/fondo.png) ;
+}
 
 html,
 body {
-
+  background-color: "#F3F3F3";
+  background-image: var(--fondo);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70vh;
   display: grid;
   height: 100vh;
   width: 100vw;
