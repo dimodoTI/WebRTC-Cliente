@@ -76,6 +76,12 @@ const conectar = conPantalla => {
     mediaElements.forEach(elm => {
       if (elm.__userId == event.userid) elm.parentNode.removeChild(elm);
     })
+    let remotos = document.querySelectorAll(".vc");
+    if (remotos.length == 0 ){
+      let divAnfitrion = document.getElementById("anfitrion");
+      divAnfitrion.hidden = false ;     
+    }
+    
   };
 
   connection.onstreamended = function (event) {
