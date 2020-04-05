@@ -18,6 +18,14 @@ document.getElementById("btnPantalla").onclick = e => {
 };
 document.getElementById("btnCerrar").onclick = e => {
   if (confirm("¿ Desea terminar la videollamada ?")) {
+
+    let mediaElement1 = document.getElementById("video-local");
+    if (mediaElement1) {
+      mediaElement1.parentNode.removeChild(mediaElement1);
+    }
+    connection.attachStreams.forEach(function (stream) {
+      stream.stop();
+    });
     connection.close()
   }
 };
@@ -71,6 +79,7 @@ const conectar = conPantalla => {
       titulo.innerHTML = event.userid.split("-")[0];
       if (event.type == "local") {
         event.mediaElement.muted = true
+        event.mediaElement.controls = false
         document.querySelector("#video-local").appendChild(event.mediaElement);
       }
       if (event.type == "remote") {
