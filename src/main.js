@@ -16,17 +16,25 @@ document.getElementById("btnPantalla").onclick = e => {
     screen: true
   });
 };
-document.getElementById("btnCerrar").onclick = e => {
-  if (confirm("¿ Desea terminar la videollamada ?")) {
 
-    let mediaElement1 = document.getElementById("video-local");
-    if (mediaElement1) {
-      mediaElement1.parentNode.removeChild(mediaElement1);
+document.getElementById("btnCerrar").onclick = e => {
+  if (e.currentTarget.hasAttribute("hablando")) {
+    if (confirm("¿ Desea terminar la videollamada ?")) {
+
+      let mediaElement1 = document.getElementById("video-local");
+      if (mediaElement1) {
+        mediaElement1.innerHTML = ""
+      }
+      connection.attachStreams.forEach(function (stream) {
+        stream.stop();
+      });
+      e.currentTarget.removeAttribute("hablando", "")
+      connection.close()
+      connection = null
     }
-    connection.attachStreams.forEach(function (stream) {
-      stream.stop();
-    });
-    connection.close()
+  } else {
+    conectar()
+    e.currentTarget.setAttribute("hablando", "")
   }
 };
 
@@ -100,7 +108,7 @@ const conectar = conPantalla => {
     }
   };
 
-  const sala = getParameterByName("sala") || "miSala";
+  const sala = getParameterByName("sala") || "miSalaLocal";
   const usuario = getParameterByName("usuario") || "yo";
   connection.userid = usuario + "-" + new Date().getTime();
   connection.openOrJoin(sala);
