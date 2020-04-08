@@ -22,7 +22,7 @@ module.exports = {
             title: "Video Chat",
             template: "./src/index.html",
             filename: "index.html",
-            favicon: "./assets/icons/favicon.ico"
+            favicon: "./assets/icons/favicon.png"
         })
     ],
     module: {

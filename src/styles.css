@@ -24,22 +24,20 @@ html {
   }
 
   #btnPantalla {
-    display: none
+    opacity: .3
+  }
+
+  #conectando {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 2rem !important;
   }
 }
 
 
-:root {
-  --fondo: url(../assets/image/fondo.png) ;
-}
-
 html,
 body {
-  background-color: "#F3F3F3";
-  background-image: var(--fondo);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 70vh;
+  background-color: #5f9ea0;
   display: grid;
   height: 100vh;
   width: 100vw;
@@ -50,7 +48,29 @@ body {
 }
 
 
+#conectando {
+  font-size: 5rem;
+  color: rgba(0, 0, 0, 0.4);
+  animation: blink 1s linear infinite alternate;
+}
 
+#conectando[conectado] {
+  display: none
+}
+
+@keyframes blink {
+  0% {
+    opacity: .5;
+  }
+
+  50% {
+    opacity: .75;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 video {
   height: 100%;
@@ -63,12 +83,7 @@ video {
 }
 
 #video-local {
-  position: absolute;
-  display: grid;
-  height: 20vh;
-  width: 13.2vw;
-  right: 0;
-  z-index: 100;
+  display: none;
 }
 
 #video-remoto {
@@ -79,37 +94,9 @@ video {
 .vc {
   display: grid;
   position: relative;
-  background-color: rgb(00, 184, 184);
+  background-color: transparent;
   min-height: 25vh;
-
   border: 1px solid black;
-}
-
-#btnPantalla {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: coral;
-  color: white;
-  padding: .5rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  box-shadow: var(--shadow-elevation-4-box);
-  outline: none;
-
-
-}
-
-#btnPantalla .contenido {
-  display: grid;
-  grid-gap: .5rem;
-  grid-auto-flow: column;
-  align-items: center;
-}
-
-#btnPantalla:hover {
-  background-color: darksalmon;
 }
 
 .titulo {
@@ -124,55 +111,43 @@ video {
   font-weight: bold;
 }
 
-#anfitrion {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 1rem 1rem 1rem 1rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;  
-  padding: 0.3rem 1rem 0.3rem 1rem;
-  font-size: 2.5vw;
-  align-items: center;
-  text-align: center;
-}
 
 #btnCerrar {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: red;
+  stroke: white;
+  fill: white
+}
+
+.menu:not([hablando]) .trigger {
   background-color: green;
-  border-radius: 50%;
-  padding: 1rem;
-  color: white;
   stroke: white;
   fill: white;
-  border: none;
-  cursor: pointer;
-  box-shadow: var(--shadow-elevation-4-box);
-  outline: none;
 }
 
-#btnCerrar[hablando] {
-  background-color: red !important
+.menu[hablando] .trigger {
+  background-color: darkorange
 }
 
-#btnCerrar[hablando] #atender {
+.menu[hablando] #atender {
   display: none
 }
 
-#btnCerrar:not([hablando]) #colgar {
+.menu:not([hablando]) #colgar {
   display: none;
 }
 
-.blink {
-  animation: blinker 3s linear infinite;
+#btnMicro[prendido] svg:first-child {
+  display: none
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
+#btnMicro:not([prendido]) svg:last-child {
+  display: none;
+}
+
+#btnVideo[prendido] svg:first-child {
+  display: none
+}
+
+#btnVideo:not([prendido]) svg:last-child {
+  display: none;
 }
