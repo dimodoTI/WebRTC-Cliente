@@ -1,8 +1,6 @@
 import {} from "./styles.css";
 import {} from "./botonera.css";
 
-const RTCMultiConnection = require("RTCMultiConnection");
-
 const getParameterByName = (name, url) => {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
@@ -154,9 +152,6 @@ const conectar = (conPantalla) => {
         event.mediaElement.controls = false;
         localStreamId = event.streamid;
         document.querySelector("#video-local").appendChild(event.mediaElement);
-        document
-          .querySelector("#video-local")
-          .firstElementChild.requestPictureInPicture();
       }
       if (event.type == "remote") {
         event.mediaElement.muted = false;

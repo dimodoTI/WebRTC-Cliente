@@ -32,6 +32,12 @@ html {
     text-orientation: upright;
     font-size: 2rem !important;
   }
+
+  #video-local {
+    width: 10rem !important;
+    height: 5.65rem !important;
+
+  }
 }
 
 
@@ -83,7 +89,13 @@ video {
 }
 
 #video-local {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+  width: 15rem;
+  height: 8.47rem;
+  z-index: 100
 }
 
 #video-remoto {
