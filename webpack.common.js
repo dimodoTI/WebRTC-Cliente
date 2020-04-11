@@ -36,6 +36,11 @@ module.exports = {
                     entry: '/socket.io.js',
                     global: 'io',
                 },
+                {
+                    module: 'rtcmulticonnection',
+                    entry: '/dev/CodecsHandler.js',
+                    global: 'CodecsHandler',
+                },
             ],
         })
     ],

@@ -47,13 +47,30 @@
 </head>
 
 <body>
-  <div id="conectando">Conectando...</div>
+  <div id="conectando" conectado>Conectando...</div>
+  <div id="formulario">
+    <div style="color:white">Video Chat</div>
+    <div class="inputText" id="salaWrapper">
+      <input id="sala" type="text" placeholder="Máximo de 18 caracteres sin espacios" maxlength="18" />
+    </div>
+    <div class="inputText" id="usuarioWrapper">
+      <input id="usuario" type="text" placeholder="Máximo 10 caracteres sin espeacios" maxlength="10" />
+    </div>
+  </div>
+
   <div id="videos">
     <div id="video-local"></div>
     <div id="video-remoto"></div>
   </div>
 
   <div class="menu">
+    <svg viewBox="0 0 500 500" style="width:6rem;height:6rem;fill:white;overflow:visible">
+      <!-- <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" /> -->
+      <path id="curve" fill="transparent" d='M0,250 C0,-75 500,-75 500,250' />
+      <text width="500" font-size="5rem" text-anchor="middle">
+        <textPath xlink:href="#curve" id="svgSala" startOffset="50%"></textPath>
+      </text>
+    </svg>
     <div class="btn trigger">
       <svg viewBox="0 0 24 24" id="colgar">
         <path
@@ -135,6 +152,7 @@
       para actualizar.
     </div>
   </div>
+  <div id="codecs"></div>
 </body>
 <script>
   let newWorker;

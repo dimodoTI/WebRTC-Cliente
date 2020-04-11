@@ -55,6 +55,9 @@ body {
 
 
 #conectando {
+  position: absolute;
+  top: 0;
+  left: 0;
   font-size: 5rem;
   color: rgba(0, 0, 0, 0.4);
   animation: blink 1s linear infinite alternate;
@@ -140,6 +143,7 @@ video {
   background-color: darkorange
 }
 
+
 .menu[hablando] #atender {
   display: none
 }
@@ -162,4 +166,67 @@ video {
 
 #btnVideo:not([prendido]) svg:last-child {
   display: none;
+}
+
+#codecs {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: .6rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#formulario {
+  display: grid;
+  grid-auto-flow: row;
+  align-self: center;
+  justify-self: center;
+  grid-gap: 1rem;
+  padding: 1rem;
+  background-color: rgb(83, 101, 135);
+  border-radius: 4px;
+}
+
+#formulario[conectado] {
+  display: none;
+}
+
+.inputText {
+  position: relative;
+  display: grid;
+  grid-auto-flow: row;
+  justify-content: end;
+
+}
+
+input {
+  border: none;
+  padding: 1rem 1rem 0rem 1rem;
+  border-radius: 4px;
+  height: 3rem;
+  width: 20rem;
+  position: relative
+}
+
+
+#salaWrapper::before {
+  content: 'Sala';
+  position: absolute;
+  top: 0rem;
+  left: .5rem;
+  z-index: 10;
+  font-size: .8rem;
+  color: rgb(83, 101, 135)
+}
+
+#usuarioWrapper::before {
+  content: 'Usuario';
+  position: absolute;
+  top: 0rem;
+  left: .5rem;
+  z-index: 10;
+  font-size: .8rem;
+  color: rgb(83, 101, 135)
 }
